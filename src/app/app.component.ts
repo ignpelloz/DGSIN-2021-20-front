@@ -6,12 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'] // styles for this comp
 })
 export class AppComponent {
-  title = 'dgsin-contacts-front';
+  title = 'dgsin-expenditures-front';
 
   // here code of my comp
 
   setTitle(title: string): void {
-    
+
   }
 
 }

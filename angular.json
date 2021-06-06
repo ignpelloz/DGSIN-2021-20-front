@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dgsin-contacts-front": {
+    "dgsin-expenditures-front": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/dgsin-contacts-front",
+            "outputPath": "dist/dgsin-expenditures-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "dgsin-contacts-front:build:production"
+              "browserTarget": "dgsin-expenditures-front:build:production"
             },
             "development": {
-              "browserTarget": "dgsin-contacts-front:build:development"
+              "browserTarget": "dgsin-expenditures-front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dgsin-contacts-front:build"
+            "browserTarget": "dgsin-expenditures-front:build"
           }
         },
         "test": {
@@ -103,5 +103,5 @@
       }
     }
   },
-  "defaultProject": "dgsin-contacts-front"
+  "defaultProject": "dgsin-expenditures-front"
 }

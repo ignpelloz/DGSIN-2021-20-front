@@ -6,14 +6,14 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ContactsComponent } from './contacts/contacts.component';
-import { ContactDetailComponent } from './contact-detail/contact-detail.component';
+import { ExpendituresComponent } from './expenditures/expenditures.component';
+import { ExpenditureDetailComponent } from './expenditure-detail/expenditure-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContactsComponent,
-    ContactDetailComponent
+    ExpendituresComponent,
+    ExpenditureDetailComponent
   ],
   imports: [
     BrowserModule,

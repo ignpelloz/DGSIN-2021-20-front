@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
 
-app.use(express.static('./dist/dgsin-contacts-front')); // Has to be consistent with what is in package.json
+app.use(express.static('./dist/DGSIN-2021-20-front')); // Has to be consistent with what is in package.json
 
 
 app.get('/*', function(req,res)) {
-  res.sendFile('index.html',{root:'dist/dgsin-contacts-front/'})
+  res.sendFile('index.html',{root:'dist/DGSIN-2021-20-front/'})
 });
 
 app.listen(process.env.PORT || 8080)

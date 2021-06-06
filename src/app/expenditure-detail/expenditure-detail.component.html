@@ -1,0 +1,27 @@
+<h1>Update expenditure</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <td>Autonomous Community</td>
+      <td>Year</td>
+      <td>Average Expenditure per Household</td>
+      <td>Average Expenditure per Person</td>
+      <td>Porcentual Distribution</td>
+      <td>Actions</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{expenditure.autonomous_community}}</td>
+      <td>{{expenditure.year}}</td>
+      <td><input class="form-control" [(ngModel)]="expenditure.avg_expenditure_household" /></td>
+      <td><input class="form-control" [(ngModel)]="expenditure.avg_expenditure_person" /></td>
+      <td><input class="form-control" [(ngModel)]="expenditure.porcentual_distribution" /></td>
+      <td>
+        <button class="btn btn-primary" (click)="saveExpenditure()">Update</button>
+        &nbsp;&nbsp;
+        <button class="btn btn-secondary" (click)="goBack()">Cancel</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

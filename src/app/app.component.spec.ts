@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'dgsin-contacts-front'`, () => {
+  it(`should have as title 'dgsin-expenditures-front'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('dgsin-contacts-front');
+    expect(app.title).toEqual('dgsin-expenditures-front');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('dgsin-contacts-front app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('dgsin-expenditures-front app is running!');
   });
 });

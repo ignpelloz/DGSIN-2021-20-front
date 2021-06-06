@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="ContactManagerApp">
+
+  <head>
+
+    <title>My contact server</title>
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+
+    <script type="text/javascript" src=""></script>
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="contactManagerApp.js"></script>
+    <script type="text/javascript" src="listCtrl.js"></script>
+    <script type="text/javascript" src="editCtrl.js"></script>
+    <script type="text/javascript" src="analyticsCtrl.js"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  </head>
+
+  <body>
+    <div ng-view></div>
+  </body>
+
+</html>

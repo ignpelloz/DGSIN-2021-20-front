@@ -10,8 +10,8 @@ import { EXPENDITURES } from './mock-expenditures';
 })
 export class ExpenditureService {
 
-  private expendituresUrl = "http://localhost:8080/api/v1/alcohol-tobacco-exps"; // backend's local URL
-  //private expendituresUrl = "http://dgsin-2021-20.herokuapp.com/api/v1/alcohol-tobacco-exps"; // backend's Heroku URL
+  //private expendituresUrl = "http://localhost:8080/api/v1/alcohol-tobacco-exps"; // backend's local URL
+  private expendituresUrl = "http://dgsin-2021-20.herokuapp.com/api/v1/alcohol-tobacco-exps"; // backend's Heroku URL
 
   private httpOptions = {
     header: new HttpHeaders({ 'Content-Type': 'application/json'}),

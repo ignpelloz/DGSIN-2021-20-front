@@ -37,7 +37,9 @@ export class ExpendituresComponent implements OnInit { // conrols the view: all 
     if (!autonomous_community) {
       return;
     }
-    this.expenditureService.addExpenditure({ autonomous_community,
+    
+    this.expenditureService.addExpenditure({
+                                     autonomous_community,
                                      year,
                                      avg_expenditure_household,
                                      avg_expenditure_person,

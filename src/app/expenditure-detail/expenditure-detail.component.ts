@@ -36,7 +36,9 @@ export class ExpenditureDetailComponent implements OnInit {
   }
 
   saveExpenditure(): void {
-    this.expenditureService.updateExpenditure(this.expenditure)
+    var updatedExpenditure = this.expenditure
+    delete updatedExpenditure["_id"]
+    this.expenditureService.updateExpenditure(updatedExpenditure)
       .subscribe(_ => this.goBack());
   }
 

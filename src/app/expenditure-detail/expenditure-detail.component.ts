@@ -31,7 +31,7 @@ export class ExpenditureDetailComponent implements OnInit {
 
   getExpenditure(): void {
     this.expenditureService.getExpenditure(this.route.snapshot.paramMap.get('autonomous_community'),
-                                           JSON.parse(this.route.snapshot.paramMap.get('year'))) // TODO: it's not only autonomous_community
+      JSON.parse(this.route.snapshot.paramMap.get('year')))
       .subscribe(expenditure => this.expenditure = expenditure);
   }
 
@@ -39,7 +39,16 @@ export class ExpenditureDetailComponent implements OnInit {
     var updatedExpenditure = this.expenditure
     delete updatedExpenditure["_id"]
     this.expenditureService.updateExpenditure(updatedExpenditure)
-      .subscribe(_ => this.goBack());
+      .subscribe(
+        success => {
+          this.goBack();
+          if (!success) {
+            alert("Error updating resource") // TODO: works but the message is useless
+          }else{
+            alert("Resource updated")
+          }
+          console.log(success)
+        });
   }
 
   goBack(): void {

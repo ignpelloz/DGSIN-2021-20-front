@@ -36,6 +36,7 @@ export class ExpenditureService {
   }
 
   updateExpenditure(updatedExpenditure: Expenditure): Observable<Expenditure> {
+    //alert("hello")
     return this.http.put<Expenditure>(`${this.expendituresUrl}/${updatedExpenditure.autonomous_community}/${updatedExpenditure.year}`,updatedExpenditure) // TODO: do here all the checks (right format and fields, etc)
     .pipe(
       catchError(this.handleError<Expenditure>(`updatedExpenditure autonomous_community=${updatedExpenditure.autonomous_community}`)) // TODO: take year too
@@ -57,6 +58,8 @@ export class ExpenditureService {
   }
 
   deleteExpenditure(autonomous_community: string, year: number): Observable<any>{
+    //alert("hello")
+    console.log("This is the service")
     return this.http.delete(`${this.expendituresUrl}/${autonomous_community}/${year}`, this.httpOptions)
     .pipe(
       catchError(this.handleError<any>(`deleteExpenditure autonomous_community=${autonomous_community}`)) // TODO: take year too

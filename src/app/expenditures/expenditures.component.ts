@@ -37,7 +37,7 @@ export class ExpendituresComponent implements OnInit { // conrols the view: all 
     if (!autonomous_community) {
       return;
     }
-    
+
     this.expenditureService.addExpenditure({
                                      autonomous_community,
                                      year,
@@ -45,21 +45,47 @@ export class ExpendituresComponent implements OnInit { // conrols the view: all 
                                      avg_expenditure_person,
                                      porcentual_distribution
                                    }).subscribe(
-      _ => { // this callback func. takes no parameters, hence '_'
+      success => { // this callback func. takes no parameters, hence '_'
         this.getExpenditures(); // reloads the list aftern an addition
+        if (!success) {
+          alert("Error adding new resource") // TODO: works but the message is useless
+        }else{
+          alert("New resource added")
+        }
+        console.log(success)
       }
     );
   }
 
   deleteExpenditures(): void {
     this.expenditureService.deleteExpenditures().subscribe(
-      _ => this.getExpenditures() // reloads the list aftern an addition
+      // _ => this.getExpenditures() // reloads the list aftern an addition
+      success => {
+        this.getExpenditures();
+        if (!success) { // TODO: it's null instead of undefined in this case, hence this check fails
+          alert("Error deleting resources") // TODO: works but the message is useless
+        }else{
+          alert("All resources deleted")
+        }
+        console.log(success)
+      }
     )
   }
 
   deleteExpenditure(autonomous_community: string, year: number): void {
+    console.log("This is the component")
     this.expenditureService.deleteExpenditure(autonomous_community, year).subscribe(
-      _ => this.getExpenditures() // reloads the list aftern an addition
+      // _ => this.getExpenditures() // reloads the list aftern an addition
+      success => {
+        this.getExpenditures();
+        if (!success) { // TODO: it's null instead of undefined in this case, hence this check fails
+          alert("Error deleting resource") // TODO: works but the message is useless
+        }else{
+          alert("Resource deleted")
+        }
+        console.log(success)
+      }
     )
+    console.log("This is the component again")
   }
 }

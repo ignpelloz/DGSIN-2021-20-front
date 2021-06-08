@@ -50,6 +50,13 @@ export class ExpenditureService {
     )
   }
 
+  loadInitialData(): Observable<any>{
+    return this.http.get(`${this.expendituresUrl}/loadInitialData`,{responseType: 'text'})
+    .pipe(
+      catchError(this.handleError<any>('loadInitialData'))
+    )
+  }
+
   deleteExpenditures(): Observable<any>{
     return this.http.delete(this.expendituresUrl, this.httpOptions)
     .pipe(
@@ -58,8 +65,6 @@ export class ExpenditureService {
   }
 
   deleteExpenditure(autonomous_community: string, year: number): Observable<any>{
-    //alert("hello")
-    console.log("This is the service")
     return this.http.delete(`${this.expendituresUrl}/${autonomous_community}/${year}`, this.httpOptions)
     .pipe(
       catchError(this.handleError<any>(`deleteExpenditure autonomous_community=${autonomous_community}`)) // TODO: take year too

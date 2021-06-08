@@ -7,18 +7,24 @@ import { ExpenditureService } from '../expenditure.service';
   templateUrl: './expenditures.component.html',
   styleUrls: ['./expenditures.component.css']
 })
-export class ExpendituresComponent implements OnInit { // conrols the view: all the JS code needed to get the expenditures has to go in this class
+
+export class ExpendituresComponent implements OnInit { // controls the view: all the JS code needed to get the expenditures has to go in this class
 
   expenditures: Expenditure[];
+
+  checkResponse(subRes: string, failMsg: string, successMsg: string): void{
+    this.getExpenditures(); // reloads the list
+    if (subRes === undefined) {
+      alert(failMsg)
+    }else{
+      alert(successMsg)
+    }
+    console.log(subRes)
+  }
 
   constructor(private expenditureService: ExpenditureService) { }
 
   ngOnInit(): void { // initialize expenditures here better than using the constructor
-    // now from this component we dont know how the expenditures will be gotten: "we got independent from the way the expenditures will be gotten, the service will be in charge of that"
-    //this.expenditures = this.expenditureService.getExpenditures();
-    //this.expenditureService.getExpenditures().subscribe(
-    //  (expenditures) => this.expenditures = expenditures
-    //);
     this.getExpenditures();
   }
 
@@ -28,7 +34,7 @@ export class ExpendituresComponent implements OnInit { // conrols the view: all 
     );
   }
 
-  addExpenditure(autonomous_community: string, // TODO: Validate the data before adding the data
+  addExpenditure(autonomous_community: string, // TODO: Validate the data before adding it
     year: number,
     avg_expenditure_household: number,
     avg_expenditure_person: number,
@@ -45,47 +51,33 @@ export class ExpendituresComponent implements OnInit { // conrols the view: all 
                                      avg_expenditure_person,
                                      porcentual_distribution
                                    }).subscribe(
-      success => { // this callback func. takes no parameters, hence '_'
-        this.getExpenditures(); // reloads the list aftern an addition
-        if (!success) {
-          alert("Error adding new resource") // TODO: works but the message is useless
-        }else{
-          alert("New resource added")
-        }
-        console.log(success)
+      success => {
+        this.checkResponse(success,"Error adding new resource","New resource added")
       }
     );
   }
 
+  loadInitialData():void {
+    this.expenditureService.loadInitialData().subscribe(
+      success => {
+        this.checkResponse(success,"Error loading initial data","Loaded initial data")
+      }
+    )
+  }
+
   deleteExpenditures(): void {
     this.expenditureService.deleteExpenditures().subscribe(
-      // _ => this.getExpenditures() // reloads the list aftern an addition
       success => {
-        this.getExpenditures();
-        if (!success) { // TODO: it's null instead of undefined in this case, hence this check fails
-          alert("Error deleting resources") // TODO: works but the message is useless
-        }else{
-          alert("All resources deleted")
-        }
-        console.log(success)
+        this.checkResponse(success,"Error deleting resources","All resources deleted")
       }
     )
   }
 
   deleteExpenditure(autonomous_community: string, year: number): void {
-    console.log("This is the component")
     this.expenditureService.deleteExpenditure(autonomous_community, year).subscribe(
-      // _ => this.getExpenditures() // reloads the list aftern an addition
       success => {
-        this.getExpenditures();
-        if (!success) { // TODO: it's null instead of undefined in this case, hence this check fails
-          alert("Error deleting resource") // TODO: works but the message is useless
-        }else{
-          alert("Resource deleted")
-        }
-        console.log(success)
+        this.checkResponse(success,"Error deleting resource","Resource deleted")
       }
     )
-    console.log("This is the component again")
   }
 }

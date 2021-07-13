@@ -9,6 +9,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ExpendituresComponent } from './expenditures/expenditures.component';
 import { ExpenditureDetailComponent } from './expenditure-detail/expenditure-detail.component';
 
+import { HighchartsChartModule } from 'highcharts-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,8 @@ import { ExpenditureDetailComponent } from './expenditure-detail/expenditure-det
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    HighchartsChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

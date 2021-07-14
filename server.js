@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-app.use(express.static('./dist/dgsin-expenditures-front')); // Has to be consistent with what is in package.json
+app.use(express.static('./dist/dgsin-expenditures-front')); // TODO
 
 
 app.get('/*', function(req,res) {
@@ -9,8 +9,3 @@ app.get('/*', function(req,res) {
 });
 
 app.listen(process.env.PORT || 8080)
-
-// After this have to update package.json: change 'ng serve' (start script) to 'node server.js'
-// Also, add '--prod' to the build script
-
-// At this point, ready to push to heroku

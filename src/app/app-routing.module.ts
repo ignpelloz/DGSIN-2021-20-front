@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ExpenditureDetailComponent } from './expenditure-detail/expenditure-detail.component';
 import { ExpendituresComponent } from './expenditures/expenditures.component';
 import { AboutComponent } from './about/about.component';
+import { IndexComponent } from './index/index.component';
 //import { AnalyticsComponent } from './analytics/analytics.component';
 
 const routes: Routes = [

@@ -5,7 +5,4 @@
 <td><button class="btn btn-warning" routerLink="/expenditures/{{expenditure.autonomous_community}}/{{expenditure.year}}">Edit</button></td>
 -->
 
-
-(Source: <a href="youtube.com">youtube.com</a>)
-<br>
-<iframe width="1200" height="800" src="https://www.youtube.com/embed/"></iframe>
+<a href="youtube.com">youtube.com</a>

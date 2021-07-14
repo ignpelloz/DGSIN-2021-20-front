@@ -12,6 +12,7 @@ export class AboutComponent { // controls the view: all the JS code needed to ge
 
   //expenditures: Expenditure[];
 
-  //constructor(private aboutService: AboutService) { }
+  constructor() { }
+  ngOnInit(): void {}
 
 }

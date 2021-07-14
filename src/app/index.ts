@@ -1,1 +1,1 @@
-export interface About {}
+export interface Index {}

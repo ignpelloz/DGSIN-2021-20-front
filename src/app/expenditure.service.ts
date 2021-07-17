@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs'; // similar to promises
 import { catchError } from 'rxjs/operators';
 import { Expenditure } from './expenditure';
-import { EXPENDITURES } from './mock-expenditures';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +20,6 @@ export class ExpenditureService {
   constructor(private http: HttpClient) { }
 
   getExpenditures(): Observable<Expenditure[]> {
-    //return EXPENDITURES;
     return this.http.get<Expenditure[]>(this.expendituresUrl)
     .pipe( // similar to Unix' '|'
       catchError(this.handleError<Expenditure[]>('getExpenditures', []))
@@ -36,7 +34,6 @@ export class ExpenditureService {
   }
 
   updateExpenditure(updatedExpenditure: Expenditure): Observable<Expenditure> {
-    //alert("hello")
     return this.http.put<Expenditure>(`${this.expendituresUrl}/${updatedExpenditure.autonomous_community}/${updatedExpenditure.year}`,updatedExpenditure) // TODO: do here all the checks (right format and fields, etc)
     .pipe(
       catchError(this.handleError<Expenditure>(`updatedExpenditure autonomous_community=${updatedExpenditure.autonomous_community}`)) // TODO: take year too

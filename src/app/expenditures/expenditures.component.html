@@ -25,20 +25,16 @@
       <td><button class="btn btn-primary" (click)="
           addExpenditure(newAutonomousCommunity.value,newYear.valueAsNumber,newAvgExpenditureHousehold.valueAsNumber,newAvgExpenditurePerson.valueAsNumber,newPorcentualDistribution.valueAsNumber);
           newAutonomousCommunity.value = newYear.value = newAvgExpenditureHousehold.value = newAvgExpenditurePerson.value = newPorcentualDistribution.value = ''">Add</button></td>
-      <!-- <td><button class="btn btn-success" (click)="loadInitialData();">LID</button></td> -->
     </tr>
 
     <!-- repeat: one row per object (angular's *ng)-->
     <tr *ngFor="let expenditure of expenditures">
-      <!--
-      <td><a routerLink="/expenditure/{{expenditure.autonomous_community}}/{{expenditure.year}}">{{expenditure.autonomous_community}}</a></td> <!-- Interpolacion: JS/TS code that will be run on view render-->
       <td>{{expenditure.autonomous_community}}</td>
       <td>{{expenditure.year}}</td>
       <td>{{expenditure.avg_expenditure_household}}</td>
       <td>{{expenditure.avg_expenditure_person}}</td>
       <td>{{expenditure.porcentual_distribution}}</td>
 
-      <!-- TODO: use routerLink (to switch to the edit view) on a button-->
       <td><button class="btn btn-warning" routerLink="/expenditures/{{expenditure.autonomous_community}}/{{expenditure.year}}">Edit</button></td>
       <td><button class="btn btn-danger" (click)="deleteExpenditure(expenditure.autonomous_community, expenditure.year)">Delete</button></td>
     </tr>
